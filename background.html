@@ -1,0 +1,29 @@
+<html>
+	<head>
+
+		<script type="text/javascript" src="js/fonksiyonlar.js"></script>
+		<script type="text/javascript" src="js/sayfaal.js"></script>
+		<script type="text/javascript" src="js/risoku.js"></script>
+		<script>
+
+			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){ 
+				guncelle();	
+				if (changeInfo.status=="complete")
+				guncelle();	
+			}); 
+
+			chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {guncelle();});
+			// chrome.tabs.oncreated.addlistener(function(tab) {guncelle();});
+
+		</script>
+	</head>
+	<body>
+		<div class="gecmis" id="0"></div>
+		<div class="gecmis" id="1"></div>
+		<div class="gecmis" id="2"></div>
+		<div class="gecmis" id="3"></div>
+		<div class="gecmis" id="4"></div>
+
+		<div id="varUrl"></div>
+	</body>
+</html>

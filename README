@@ -1,0 +1,9 @@
+Chrome Extension
+
+background.html arka fonda calisip referanslari kendi uzerinde id="0" div elemanina JSON metni olarak kaydediyor.
+
+popup html onu okuyup kullaniciya gosteriyor.
+
+iki translator var, springerlink XMLHTTPRequest yapip referanslari aliyor, scdirect acik olan sayfadakini okuyor -calisma tarzlari tamamen farkli.
+
+js klasorunde background sayfasinda calisan scriptler var.
