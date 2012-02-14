@@ -2,7 +2,10 @@ function guncelle(){
 	var urlReg = [[/https?:\/\/www\.springerlink\.com\/content\/([^\/]+)/,"springerlink"],
 	    [/https?:\/\/www\.sciencedirect\.com\/science\/.*/,"scdirect"]	  			
 		    ];
-	temizle();
+	if(!document.getElementById('0').textContent==""){
+		kaydir(5);
+		document.getElementById('1').textContent=document.getElementById('0').textContent;
+		document.getElementById('0').textContent=""}
 	chrome.tabs.getSelected(null, function(tab) {
 		var i,url=tab.url;
 		document.getElementById('varUrl').textContent=url;
@@ -23,27 +26,14 @@ function loadTranslator(translatorAdi){
 	document.head.appendChild(translator)	
 }        
 
-function temizle(){
-	if (document.getElementById('0').textContent != "") {
-	kaydir(4);
-	document.getElementById('0').textContent="";
-	}
-}
 
 function kaydir(sec){
 	var elmnt=document.body.getElementsByClassName('gecmis');
-	if (elmnt[0].textContent == "") {
-		for ( i = 0; i < elmnt.length-1; i++) 
-			elmnt[i].textContent=elmnt[i+1].textContent;
-		elmnt[elmnt.length-1].textContent="";
-		sec=sec-1
-	}
-
 	var tmp=elmnt[sec].textContent;
-	for(i=sec;i>0;i--){
+	for(i=sec;i>1;i--){
 		elmnt[i].textContent=elmnt[i-1].textContent;
 	}
-	elmnt[0].textContent=tmp;
+	elmnt[1].textContent=tmp;
 }
 
 

@@ -15,7 +15,7 @@
 			window.onload = function () {
 				bg = chrome.extension.getBackgroundPage();
 
-				x=bg.document.getElementById('1').textContent;
+				x=bg.document.getElementById('0').textContent;
 				sonuc=JSON.parse(x);
 				document.getElementById("title").value = sonuc.baslik;
 				document.getElementById("url").value = sonuc.doi;
@@ -25,7 +25,7 @@
 		</script>
 	</head>
 	<body>
-		<form id="addbookmark" onsubmit="addBookmark(this); return false;">
+		<form id="addbookmark" onsubmit="bg.location.reload(); return false;">
 			<p><label for="title">Title</label><br />
 			<input type="text" id="title" name="title" size="50" value="" /></p>
 			<p><label for="url">Url</label><br />
@@ -34,7 +34,7 @@
 			<textarea id="summary" name="summary" rows="6" cols="35"></textarea></p>
 			<p><label for="tags">Tags</label><br />
 			<input type="text" id="tags" name="tags" size="50" value="" /></p>
-			<p><input id="save" type="submit" value="Save Bookmark" /></p>
+			<p><input id="save" type="submit" value="Reload Extension"/></p>
 		</form>
 	</body>
 </html>
