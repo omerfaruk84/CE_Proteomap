@@ -11,10 +11,12 @@
 			document.head.appendChild(sc);
 		</script>
 		<!-- <script type="text/javascript" src="js/fonksiyonlar.js"></script> -->
+		<script type="text/javascript" src="js/inject.js"></script>
 		<script type="text/javascript" src="js/sayfaal.js"></script>
 		<script type="text/javascript" src="js/risoku.js"></script>
 		<script>
 
+			chrome
 			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){ 
 				// guncelle();	
 				if (changeInfo.status=="complete")
@@ -28,11 +30,11 @@
 	</head>
 	<body>
 		<div class="gecmis" id="0"></div>
-		<div class="gecmis" id="1">sencer</div>
-		<div class="gecmis" id="2">selcuk</div>
-		<div class="gecmis" id="3">boyaci</div>
-		<div class="gecmis" id="4">hande</div>
-		<div class="gecmis" id="5">deneme</div>
+		<div class="gecmis" id="1"></div>
+		<div class="gecmis" id="2"></div>
+		<div class="gecmis" id="3"></div>
+		<div class="gecmis" id="4"></div>
+		<div class="gecmis" id="5"></div>
 		<div id="varUrl"></div>
 	</body>
 </html>

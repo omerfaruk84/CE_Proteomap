@@ -4,7 +4,7 @@
 		<title>ProteoMap Chrome Extension</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="popupjs/jquery.min.js"></script>
 		<script type="text/javascript" src="popupjs/sliding.form.js"></script>
 		<script>
 			window.onload = function () {
@@ -15,28 +15,20 @@
 				document.getElementById("title").value = sonuc.baslik;
 				document.getElementById("authors").value = sonuc.yazarlar;
 				document.getElementById("journal").value = sonuc.dergi;
-				document.getElementById("year").value = sonuc.doi;
+				document.getElementById("DOI").value = sonuc.doi;
 
 			}
 		</script>
 	</head>
-	<style>
-		h1{
-			color:#ccc;
-			font-size:36px;
-			text-shadow:1px 1px 1px #fff;
-			padding:20px;
-		}
-	</style>
 	<body>
 			<div id="wrapper">
 				<div id="steps">
 					<form id="formElem" name="formElem" action="" method="post">
 						<fieldset class="step">
-							<legend onclick="bg.location.reload();chrome.tabs.reload();return false">Source Validation</legend>
+							<legend onclick="bg.location.reload();chrome.tabs.reload();location.reload();return false">Source Validation</legend>
 							<p>
 							<label for="title">Title:</label>
-							<input id="title" name="title" placeholder="Title of the book" />
+							<input id="title" name="title" placeholder="Title of the article" />
 							<br />
 							<br />
 							<label for="authors">Authors:</label>
@@ -44,19 +36,19 @@
 							<br />
 							<br />
 							<label for="journal">Journal:</label>
-							<input id="journal" name="journal" placeholder="Journal" />
+							<input id="journal" name="journal" placeholder="Journal Title" />
 							<br />
 							<br />
-							<label for="year">Year:</label>
-							<input id="year" name="year" placeholder="Published year" />
+							<label for="DOI">DOI#:</label>
+							<input id="DOI" name="DOI" placeholder="doi Number" />
 							</p>
 							<p>
 							<input type="radio" id="correct" name="radioselect" placeholder="correct" />
-							<label for="correct">Identified paper is correct:</label>
+							<label for="correct">Identified paper is correct</label>
 							<br />
 							<br />
-							<input type="radio" id="idSearch" name="radioselect" placeholder="DOI/PubMed" />
-							<label for="DOIsearch">Search with DOI/Pubmed ID:</label>
+							<input type="radio" id="idSearch" name="radioselect" placeholder="idSearch" />
+							<label for="idSearch">Search with DOI/Pubmed ID:</label>
 							<input id="DOIsearch" name="DOIsearch" placeholder="Enter DOI/Pubmed ID" />
 							<br />
 							<br />
