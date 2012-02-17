@@ -1,9 +1,9 @@
 function guncelle(){
-	//urlReg nx2lik array, URL RegExpleri ve ilgili translator js dosyasinin adini
-	//iceriyor.
+	//urlReg n x 3luk array, URL RegExpleri, ilgili translator js dosyasinin adlari
+	//ve tranlator XMLHttpRequestse true, aciksayfada calisacaksa false degerini iceriyor.
 	var urlReg = [
-		[/https?:\/\/www\.springerlink\.com\/content\/([^\/]+)/,"springerlink"],
-	    	[/https?:\/\/.*\.sciencedirect\.com\/.*pii(?:=|\/)([a-zA-Z0-9]+).*/,"scdirect"]	  			
+		[/https?:\/\/www\.springerlink\.com\/content\/([^\/]+)/,"springerlink", true],
+	    	[/https?:\/\/.*\.sciencedirect\.com\/.*pii(?:=|\/)([a-zA-Z0-9]+).*/,"scdirect", false]	  			
 		    ];
     	//div#0 translatorun yazdigi yer. eger doluysa orayi temizliyoruz
 	document.getElementById('0').textContent='';
@@ -14,21 +14,30 @@ function guncelle(){
 		document.getElementById('varUrl').textContent=url;
 		for(i=0;i<urlReg.length;i++){
 			if (url.match(urlReg[i][0])){ 
-				loadTranslator(urlReg[i][1]);
+				loadTranslator(urlReg[i][1],urlReg[i][2]);
 				break
 			}
 		}
 	});
 }
 
-function loadTranslator(translatorAdi){
-	if (x=document.getElementById('translator')) 
-		x.parentNode.removeChild(x);
-	var translator=document.createElement('script');
-	translator.id='translator';
-	translator.type = 'text/javascript';
-	translator.src='translators/' + translatorAdi + '.js';
-	document.head.appendChild(translator)	
+function loadTranslator(translatorAdi,bool){
+	if (bool) {
+		if (x=document.getElementById('translator')) 
+			x.parentNode.removeChild(x);
+		var translator=document.createElement('script');
+		translator.id='translator';
+		translator.type = 'text/javascript';
+		translator.src='translators/' + translatorAdi + '.js';
+		document.head.appendChild(translator)	
+	}
+	else{
+		chrome.tabs.executeScript(null,{file: 'translators/' + translatorAdi+ '.js'});
+	}
+
 }        
+
+
+
 
 

@@ -11,12 +11,9 @@
 			document.head.appendChild(sc);
 		</script>
 		<!-- <script type="text/javascript" src="js/fonksiyonlar.js"></script> -->
-		<script type="text/javascript" src="js/inject.js"></script>
 		<script type="text/javascript" src="js/sayfaal.js"></script>
 		<script type="text/javascript" src="js/risoku.js"></script>
 		<script>
-
-			chrome
 			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){ 
 				// guncelle();	
 				if (changeInfo.status=="complete")
@@ -26,6 +23,9 @@
 			chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {guncelle();});
 			// chrome.tabs.oncreated.addlistener(function(tab) {guncelle();});
 
+			chrome.extension.onRequest.addListener(function(request){ 
+				document.getElementById("0").textContent=request
+			});
 		</script>
 	</head>
 	<body>
