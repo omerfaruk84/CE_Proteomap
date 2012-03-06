@@ -20,6 +20,7 @@
 				if (changeInfo.status=="complete")
 				guncelle();	
 			}); 
+			chrome.windows.onFocusChanged.addListener(function(windowId) {guncelle();});
 
 			chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {guncelle();});
 			<!-- // chrome.tabs.oncreated.addlistener(function(tab) {guncelle();}); -->
