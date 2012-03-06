@@ -4,6 +4,6 @@ background.html arka fonda calisip referanslari kendi uzerinde id="0" div eleman
 
 popup html onu okuyup kullaniciya gosteriyor.
 
-iki translator var, springerlink XMLHTTPRequest yapip referanslari aliyor, scdirect acik olan sayfadakini okuyor -calisma tarzlari tamamen farkli.
+science, nature, springerlink ve sciencedirect icin translatorlar var. test edilmeleri lazim.
 
-js klasorunde background sayfasinda calisan scriptler var.
+js klasorunde background sayfasinda, popupjs klasorunde popup sayfasinda calisan scriptler var.
