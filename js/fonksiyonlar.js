@@ -1,6 +1,10 @@
 function guncelle(){
     	//div#0 translatorun yazdigi yer. eger doluysa orayi temizliyoruz
 	document.getElementById('0').textContent='';
+	// chrome.browserAction.setIcon({path: "icon1.png"});
+	// chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
+	// chrome.browserAction.setBadgeText({text:"-"});	
+	// chrome.browserAction.setTitle({"title": "Not translatable!"});
 	//acik sitenin urlsi aliniyor, urlReg'den hangi translatorun
 	//kullanilacagina karar verilip sayfaya o translator yukleniyor
 	chrome.tabs.getSelected(null, function(tab) {
@@ -8,6 +12,10 @@ function guncelle(){
 		document.getElementById('varUrl').textContent=url;
 		for(i=0;i<urlReg.length;i++){
 			if (url.match(urlReg[i][0])){ 
+				// chrome.browserAction.setIcon({path: "icon2.png"});
+				// chrome.browserAction.setBadgeBackgroundColor({color:[180, 50, 20, 230]});
+				// chrome.browserAction.setBadgeText({text:"+"});
+				// chrome.browserAction.setTitle({"title": "Translator: " + urlReg[i][1]});
 				loadTranslator(urlReg[i][1],urlReg[i][2]);
 				break
 			}
