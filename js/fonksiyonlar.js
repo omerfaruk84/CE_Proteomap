@@ -1,10 +1,4 @@
 function guncelle(){
-	//urlReg n x 3luk array, URL RegExpleri, ilgili translator js dosyasinin adlari
-	//ve tranlator XMLHttpRequestse true, aciksayfada calisacaksa false degerini iceriyor.
-	var urlReg = [
-		[/https?:\/\/www\.springerlink\.com\/content\/([^\/]+)/,"springerlink", true],
-	    	[/https?:\/\/.*\.sciencedirect\.com\/.*pii(?:=|\/)([a-zA-Z0-9]+).*/,"scdirect", false]	  			
-		    ];
     	//div#0 translatorun yazdigi yer. eger doluysa orayi temizliyoruz
 	document.getElementById('0').textContent='';
 	//acik sitenin urlsi aliniyor, urlReg'den hangi translatorun
@@ -28,7 +22,7 @@ function loadTranslator(translatorAdi,bool){
 		var translator=document.createElement('script');
 		translator.id='translator';
 		translator.type = 'text/javascript';
-		translator.src='translators/' + translatorAdi + '.js';
+		translator.src='translators/' + translatorAdi + '.js?r=' +(new Date()).getTime();
 		document.head.appendChild(translator)	
 	}
 	else{
@@ -36,8 +30,3 @@ function loadTranslator(translatorAdi,bool){
 	}
 
 }        
-
-
-
-
-

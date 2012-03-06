@@ -1,27 +1,28 @@
 <html>
 	<head>
 
+		<script type="text/javascript" src="js/urlreg.js"></script>
 		<script type="text/javascript" charset="utf-8">
-		//fonksiyonlar.js yi boyle yuklememin sebebi
-		//chromeu acip kapamadan guncellemeleri uygulamak
-		//sonradan normale ceviricem
+		<!-- fonksiyonlar.js yi boyle yuklememin sebebi -->
+		<!-- chromeu acip kapamadan guncellemeleri uygulamak -->
+		<!-- sonradan normale ceviricem -->
 			var sc=document.createElement('script');
 			sc.type='text/javascript';
 			sc.src='js/fonksiyonlar.js?r=' +(new Date()).getTime();
 			document.head.appendChild(sc);
 		</script>
 		<!-- <script type="text/javascript" src="js/fonksiyonlar.js"></script> -->
-		<script type="text/javascript" src="js/sayfaal.js"></script>
-		<script type="text/javascript" src="js/risoku.js"></script>
+		<script type="text/javascript" src="js/sayfaAl.js"></script>
+		<script type="text/javascript" src="js/risOku.js"></script>
 		<script>
 			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){ 
-				// guncelle();	
+				guncelle();	
 				if (changeInfo.status=="complete")
 				guncelle();	
 			}); 
 
 			chrome.tabs.onActiveChanged.addListener(function(tabId, selectInfo) {guncelle();});
-			// chrome.tabs.oncreated.addlistener(function(tab) {guncelle();});
+			<!-- // chrome.tabs.oncreated.addlistener(function(tab) {guncelle();}); -->
 
 			chrome.extension.onRequest.addListener(function(request){ 
 				document.getElementById("0").textContent=request
@@ -30,11 +31,11 @@
 	</head>
 	<body>
 		<div class="gecmis" id="0"></div>
-		<div class="gecmis" id="1"></div>
-		<div class="gecmis" id="2"></div>
-		<div class="gecmis" id="3"></div>
-		<div class="gecmis" id="4"></div>
-		<div class="gecmis" id="5"></div>
+		<!-- <div class="gecmis" id="1"></div> -->
+		<!-- <div class="gecmis" id="2"></div> -->
+		<!-- <div class="gecmis" id="3"></div> -->
+		<!-- <div class="gecmis" id="4"></div> -->
+		<!-- <div class="gecmis" id="5"></div> -->
 		<div id="varUrl"></div>
 	</body>
 </html>

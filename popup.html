@@ -1,107 +1,117 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<title>ProteoMap Chrome Extension</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
 		<script type="text/javascript" src="popupjs/jquery.min.js"></script>
 		<script type="text/javascript" src="popupjs/sliding.form.js"></script>
+		<!-- <script type="text/javascript" src="popupjs/jquery.autoresize.js"></script> -->
 		<script>
 			window.onload = function () {
 				bg = chrome.extension.getBackgroundPage();
-
 				x=bg.document.getElementById('0').textContent;
 				sonuc=JSON.parse(x);
-				document.getElementById("title").value = sonuc.baslik;
-				document.getElementById("authors").value = sonuc.yazarlar;
-				document.getElementById("journal").value = sonuc.dergi;
+				document.getElementById("title").value = sonuc.title;
+				document.getElementById("authors").value = JSON.stringify(sonuc.authors);
+				document.getElementById("journal").value = sonuc.journal;
 				document.getElementById("DOI").value = sonuc.doi;
 
 			}
 		</script>
+		<!--<script>-->
+			<!-- $('textarea,input').autoResize({ -->
+			<!-- 	onBeforeResize: function(){ -->
+			<!-- 		$(this).css('background', 'red'); -->
+			<!-- 	}, -->
+			<!-- 	onAfterResize: function(){ -->
+			<!-- 		$(this).css('background', ''); -->
+			<!-- 	} -->
+			<!-- }); -->
+			<!--</script>-->
 	</head>
 	<body>
-			<div id="wrapper">
-				<div id="steps">
-					<form id="formElem" name="formElem" action="" method="post">
-						<fieldset class="step">
-							<legend onclick="bg.location.reload();chrome.tabs.reload();location.reload();return false">Source Validation</legend>
-							<p>
-							<label for="title">Title:</label>
-							<input id="title" name="title" placeholder="Title of the article" />
-							<br />
-							<br />
-							<label for="authors">Authors:</label>
-							<input id="authors" name="authors" placeholder="Authors' name" AUTOCOMPLETE=OFF />
-							<br />
-							<br />
-							<label for="journal">Journal:</label>
-							<input id="journal" name="journal" placeholder="Journal Title" />
-							<br />
-							<br />
-							<label for="DOI">DOI#:</label>
-							<input id="DOI" name="DOI" placeholder="doi Number" />
-							</p>
-							<p>
-							<input type="radio" id="correct" name="radioselect" placeholder="correct" />
-							<label for="correct">Identified paper is correct</label>
-							<br />
-							<br />
-							<input type="radio" id="idSearch" name="radioselect" placeholder="idSearch" />
-							<label for="idSearch">Search with DOI/Pubmed ID:</label>
-							<input id="DOIsearch" name="DOIsearch" placeholder="Enter DOI/Pubmed ID" />
-							<br />
-							<br />
-							</p>
+		<div id="wrapper">
+			<div id="steps">
+				<form id="formElem" name="formElem" action="" method="post">
+					<fieldset class="step">
+						<legend onclick="bg.location.reload();chrome.tabs.reload();location.reload();return false">Source Validation</legend>
+						<p>
+						<label for="title">Title:</label>
+						<input id="title" name="title" placeholder="Title of the article" />
+						<br />
+						<br />
+						<label for="authors">Authors:</label>
+						<input id="authors" name="authors" placeholder="Authors' name" AUTOCOMPLETE=OFF />
+						<br />
+						<br />
+						<label for="journal">Journal:</label>
+						<input id="journal" name="journal" placeholder="Journal Title" />
+						<br />
+						<br />
+						<label for="DOI">DOI#:</label>
+						<input id="DOI" name="DOI" placeholder="doi Number" />
+						</p>
+						<p>
+						<input type="radio" id="correct" name="radioselect" placeholder="correct" />
+						<label for="correct">Identified paper is correct</label>
+						<br />
+						<br />
+						<input type="radio" id="idSearch" name="radioselect" placeholder="idSearch" />
+						<label for="idSearch">Search with DOI/Pubmed ID:</label>
+						<input id="DOIsearch" name="DOIsearch" placeholder="Enter DOI/Pubmed ID" />
+						<br />
+						<br />
+						</p>
 
-						</fieldset>
-						<fieldset class="step">
-							<legend>Basic Information</legend>
-							<div class="bbox1"><h2>Primary Molecule</h2></div>
-							<div class="bbox2"><h2>Drag & Drop</h2></div>
-							<div class="bbox3"><h2>Secondary Molecule</h2></div>
+					</fieldset>
+					<fieldset class="step">
+						<legend>Basic In1ormation</legend>
+						<div class="bbox1"><h2>Primary Molecule</h2></div>
+						<div class="bbox2"><h2>Drag & Drop</h2></div>
+						<div class="bbox3"><h2>Secondary Molecule</h2></div>
 
-						</fieldset>
-
-						<fieldset class="step">
-							<legend>Review</legend>
-							<p>
-							</p>
-							<p>
-							</p>
-						</fieldset>
-						<fieldset class="step">
-							<legend>Confirm and Submit</legend>
-							<p>
-							Everything in the form was correctly filled 
-							if all the steps have a green checkmark icon.
-							A red checkmark icon indicates that some field 
-							is missing or filled out with invalid data. In this
-							last step the user can confirm the submission of
-							the form.
-							</p>
-							<p class="submit">
-							<button id="registerButton" type="submit">Register</button>
-							</p>
-						</fieldset>
-					</form>
-				</div>
-				<div id="navigation" style="display:none;">
-					<ul>
-						<li class="selected">
-						<a href="#">Source Validation</a>
-						</li>
-						<li>
-						<a href="#">Basic Info</a>
-						</li>
-						<li>
-						<a href="#">Review</a>
-						</li>
-						<li>
-						<a href="#">Submit</a>
-						</li>
-					</ul>
-				</div>
+					</fieldset>
+					<fieldset class="step">
+						<legend>Review</legend>
+						<p>
+						</p>
+						<p>
+						</p>
+					</fieldset>
+					<fieldset class="step">
+						<legend>Confirm and Submit</legend>
+						<p>
+						Everything in the form was correctly filled 
+						if all the steps have a green checkmark icon.
+						A red checkmark icon indicates that some field 
+						is missing or filled out with invalid data. In this
+						last step the user can confirm the submission of
+						the form.
+						</p>
+						<p class="submit">
+						<button id="registerButton" type="submit">Register</button>
+						</p>
+					</fieldset>
+				</form>
 			</div>
+			<div id="navigation" style="display:none;">
+				<ul>
+					<li class="selected">
+					<a href="#">Source Validation</a>
+					</li>
+					<li>
+					<a href="#">Basic Info</a>
+					</li>
+					<li>
+					<a href="#">Review</a>
+					</li>
+					<li>
+					<a href="#">Submit</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
 	</body>
 </html>
