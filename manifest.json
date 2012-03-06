@@ -1,7 +1,7 @@
 {
    "background_page": "background.html",
    "browser_action": {
-      "default_icon": "images/icon.png",
+      "default_icon": "images/icon1.png",
       "default_title": "ProteoMap",
       "popup": "popup.html"
    },
