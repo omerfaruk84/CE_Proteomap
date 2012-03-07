@@ -1,13 +1,19 @@
 {
-   "background_page": "background.html",
-   "browser_action": {
-      "default_icon": "images/icon1.png",
-      "default_title": "ProteoMap",
-      "popup": "popup.html"
-   },
-   "description": "ProteoMap Extension",
-   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdBN08amLrb8yqUqVaDkMvheU7etpSnODDYTxJv94Ib9ZgnxgQssf68TWF4SIpQAcz+WC6Ibf3ZFoC1T1huIt2Wtcx5efw0CnmIhiTU+L3ZWGv/LucFdJpFfjybymqG+M0AuaWvC6pW7WuodHsU1QiSvmzGyHm8yI0RjjcfcNSZQIDAQAB",
-   "name": "ProteoMap 0.1",
-   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "version": "0.1"
+	"background_page": "background.html",
+	"browser_action": {
+	"default_icon": "images/icon1.png",
+	"default_title": "ProteoMap",
+	"popup": "popup.html"
+	},
+	// iconu adres cubuguna alabiliriz
+	// "page_action": {
+	// "default_icon": "images/icon1.png", // optional
+	// "default_title": "ProteoMap",    // optional; shown in tooltip
+	// "default_popup": "popup.html"    // optional
+	// },
+	"description": "ProteoMap Extension",
+	"key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdBN08amLrb8yqUqVaDkMvheU7etpSnODDYTxJv94Ib9ZgnxgQssf68TWF4SIpQAcz+WC6Ibf3ZFoC1T1huIt2Wtcx5efw0CnmIhiTU+L3ZWGv/LucFdJpFfjybymqG+M0AuaWvC6pW7WuodHsU1QiSvmzGyHm8yI0RjjcfcNSZQIDAQAB",
+	"name": "ProteoMap 0.1",
+	"permissions": [ "tabs", "http://*/*", "https://*/*" ],
+	"version": "0.1"
 }
