@@ -16,6 +16,7 @@ function guncelle(){
 				chrome.browserAction.setBadgeBackgroundColor({color:[180, 50, 20, 230]});
 				chrome.browserAction.setBadgeText({text:"+"});
 				chrome.browserAction.setTitle({"title": "Translator: " + urlReg[i][1]});
+				document.getElementById('hata').textContent='{"error": {"translator": \"' + urlReg[i][1] + '", "adres": "' + url + '\"}}';
 				loadTranslator(urlReg[i][1],urlReg[i][2]);
 				break
 			}
