@@ -9,7 +9,7 @@ function guncelle(){
 	//kullanilacagina karar verilip sayfaya o translator yukleniyor
 	chrome.tabs.getSelected(null, function(tab) {
 		var i,url=tab.url;
-		document.getElementById('hata').textContent='{"error": {"translator": "untranslated", "adres": \"' + url + '\"}}';
+		document.getElementById('hata').textContent='{"error": {"translator": "untranslated", "adres": \"' + url + '", "duzeltildi": "false\"}}';
 		document.getElementById('varUrl').textContent=url;
 		for(i=0;i<urlReg.length;i++){
 			if (url.match(urlReg[i][0])){ 
@@ -17,7 +17,7 @@ function guncelle(){
 				chrome.browserAction.setBadgeBackgroundColor({color:[180, 50, 20, 230]});
 				chrome.browserAction.setBadgeText({text:"+"});
 				chrome.browserAction.setTitle({"title": "Translator: " + urlReg[i][1]});
-				document.getElementById('hata').textContent='{"error": {"translator": \"' + urlReg[i][1] + '", "adres": "' + url + '\"}}';
+				document.getElementById('hata').textContent='{"error": {"translator": \"' + urlReg[i][1] + '", "adres": "' + url + '\", "duzeltildi": "false"}}';
 				loadTranslator(urlReg[i][1],urlReg[i][2]);
 				break
 			}
