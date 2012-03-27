@@ -14,12 +14,15 @@
 		<!-- <script type="text/javascript" src="js/fonksiyonlar.js"></script> -->
 		<script type="text/javascript" src="js/sayfaAl.js"></script>
 		<script type="text/javascript" src="js/risOku.js"></script>
+		<script type="text/javascript" src="js/fonksiyonlaromer.js"></script>
 		<script src="js/doiParser.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script>
 			chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){ 
 				guncelle();	
 				if (changeInfo.status=="complete")
-				guncelle();	
+				guncelle();
+					
 			}); 
 			chrome.windows.onFocusChanged.addListener(function(windowId) {guncelle();});
 
@@ -28,6 +31,8 @@
 
 			chrome.extension.onRequest.addListener(function(request){ 
 				document.getElementById("0").textContent=request
+		
+			
 			});
 		</script>
 	</head>

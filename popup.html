@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 	<head>
 		<title>ProteoMap Chrome Extension</title>
@@ -7,6 +7,7 @@
 		<script type="text/javascript" src="popupjs/jquery.min.js"></script>
 		<script type="text/javascript" src="popupjs/sliding.form.js"></script>
 		<script src="popupjs/post.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fonksiyonlaromer.js" type="text/javascript" charset="utf-8"></script>
 		<!-- <script type="text/javascript" src="popupjs/jquery.autoresize.js"></script> -->
 		<script>
 			window.onload = function () {
@@ -17,6 +18,13 @@
 				document.getElementById("authors").value = JSON.stringify(sonuc.authors);
 				document.getElementById("journal").value = sonuc.journal;
 				document.getElementById("DOI").value = sonuc.doi;
+				
+//chrome.tabs.getSelected(null, function(tab) {			
+//chrome.tabs.sendRequest(tab.id, {action : 'getSource'}, function(source) {
+// alert(source);
+   //alert( source.removeStopWords());
+//});
+//});
 
 			}
 		</script>
